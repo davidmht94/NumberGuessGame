@@ -1,0 +1,61 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class NumberGuess 
+{
+
+	public static void guessingGame(int n, int random)
+	{
+		Scanner sc = new Scanner(System.in);
+		if(n == random)
+		{
+			System.out.println("You guessed it!");
+			
+		}else
+		{
+			highOrLow(n, random);
+			System.out.println("That is not right. Please try again.");
+			n = sc.nextInt();
+			guessingGame(n, random);
+		}
+		sc.close();
+	}
+	
+	public static void highOrLow(int n, int random)
+	{
+		if(n < random)
+		{
+			System.out.println("That is too low");
+		}else
+		{
+			System.out.println("That is too high");
+		}
+	}
+	
+
+	public static void main(String[] args) 
+	{
+		//Creates Scanner object kbd to call methods from the Scanner class
+		Scanner kbd = new Scanner(System.in);
+		//Creates Random object rnd to call methods from the Scanner class
+		Random rnd = new Random();
+		
+		//random is assigned value called from method nextInt()
+		//the 100 tells the method to call numbers from 0 - 99
+		//adding the 1 changes it to numbers from 1 -100
+		int random = rnd.nextInt(10) + 1;
+		
+		System.out.println("Guess the number I am thinking of: ");
+		int guess = kbd.nextInt();
+		
+		guessingGame(guess,random);
+	
+		
+		
+		
+		kbd.close();		
+		 
+
+	}
+
+}
