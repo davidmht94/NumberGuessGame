@@ -3,24 +3,30 @@ import java.util.Random;
 
 public class NumberGuess 
 {
-
+	//method 
 	public static void guessingGame(int n, int random)
 	{
+	        //creates new scanner in scanner class for reading input
 		Scanner sc = new Scanner(System.in);
+		//if statement, if n == random, the method ends
 		if(n == random)
 		{
 			System.out.println("You guessed it!");
 			
 		}else
 		{
+			//uses a method to tell the user if their number guess was too high or too low
 			highOrLow(n, random);
+			///prompts user for another guess
 			System.out.println("That is not right. Please try again.");
+			//n is set to the next number being inputed
 			n = sc.nextInt();
+			//method runs again with a new int input but the same random number
 			guessingGame(n, random);
 		}
 		sc.close();
 	}
-	
+	//method lets user know if their guess was too high or too low
 	public static void highOrLow(int n, int random)
 	{
 		if(n < random)
